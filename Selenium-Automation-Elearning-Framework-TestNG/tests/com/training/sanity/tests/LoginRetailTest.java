@@ -51,6 +51,7 @@ public class LoginRetailTest {
 	public void validLoginTest() {
 		loginRetailPOM.Login("admin", "admin@123"); 
 		screenShot.captureScreenShot("AdminLoggedin");
+	System.out.println("end");
 		
 		}
 }
