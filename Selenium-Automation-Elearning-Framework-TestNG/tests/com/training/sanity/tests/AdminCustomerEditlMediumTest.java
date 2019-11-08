@@ -1,6 +1,7 @@
 package com.training.sanity.tests;
 
 import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,25 +12,25 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.CategoryMediumPOM;
-import com.training.pom.CustomerRetailPOM;
+import com.training.pom.AdminCustomerEditlMediumPOM;
 import com.training.pom.LoginRetailPOM;
+import com.training.pom.OrderRetailPOM;
+import com.training.pom.AdminReturnProductMediumPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class CategoryRetailPOMTest {
+//TC050:As admin,to edit Customer details & add reward points
 
-	
-	
-	
+public class AdminCustomerEditlMediumTest {
+
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginRetailPOM loginRetailPOM;
-	private CategoryMediumPOM categoryMediumPOM;
+	
 	private static Properties properties;
 	private ScreenShot screenShot;
-
-	//TestCase20
+	private AdminCustomerEditlMediumPOM adminCustomerEditlMediumPOM;
+	
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException {
@@ -44,7 +45,7 @@ public class CategoryRetailPOMTest {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginRetailPOM = new LoginRetailPOM(driver); 
-		categoryMediumPOM=new CategoryMediumPOM(driver);
+		adminCustomerEditlMediumPOM=new AdminCustomerEditlMediumPOM (driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -52,35 +53,26 @@ public class CategoryRetailPOMTest {
 		loginRetailPOM.Login("admin", "admin@123"); 
 	}
 	
-	@AfterMethod
+@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
 	}
 	
+	
 	@Test
-	public void clickcatalogTest()
+	public void EditCustomerInfo() 
 	{
-		categoryMediumPOM.clickcatalog();
-	
-	}
-	@Test
-	public void clickCategoryiconTest()
-{
-		categoryMediumPOM.clickCategoryicon();
+		
+		adminCustomerEditlMediumPOM.EditCustomerInfo();
+		
 	}
 	
-	public void clickProductlinkTest()
-
-	{
-		categoryMediumPOM.clickProductlink();
-	}
 	
-	public void clickonLinksTest()
-
-	{
-		categoryMediumPOM.clickonLinks();
+	
 	}
-	}
+		
+	
+	
 	
 

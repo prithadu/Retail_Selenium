@@ -5,32 +5,31 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
+import com.training.pom.CategoryMediumPOM;
+import com.training.pom.CustomerRetailPOM;
 import com.training.pom.LoginRetailPOM;
-import com.training.pom.OrderRetailPOM;
-import com.training.pom.ReturnRetailInfoFillPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-//tc049
-public class ReturnRetailInfoFillTest {
+public class CategoryMediumPOMTest {
 
+	
+	
 	
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginRetailPOM loginRetailPOM;
-	private OrderRetailPOM  orderRetailPOM;
+	private CategoryMediumPOM categoryMediumPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private ReturnRetailInfoFillPOM returnRetailInfoPOM;
-	
+
+	//Testcase 048
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException {
@@ -45,7 +44,7 @@ public class ReturnRetailInfoFillTest {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginRetailPOM = new LoginRetailPOM(driver); 
-		returnRetailInfoPOM=new ReturnRetailInfoFillPOM (driver);
+		categoryMediumPOM=new CategoryMediumPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -59,26 +58,24 @@ public class ReturnRetailInfoFillTest {
 		driver.quit();
 	}
 	
-	@Test
-	public void clickonsalesTest() 
+	@Test(priority=1)
+	public void clickcatalogTest()
 	{
-		//loginRetailPOM.Login("admin", "admin@123"); 
-		returnRetailInfoPOM.Clcikonsales();
-		
-		
-	}
+		categoryMediumPOM.clickcatalog();
 	
-	@Test
-	public void fillInfoTest() 
+	}
+	@Test(priority=2)
+	public void clickCategoryiconTest()
+{
+		categoryMediumPOM.clickCategoryicon();
+	}
+	@Test(priority=3)
+	public void clickProductlinkTest()
+
 	{
-		//loginRetailPOM.Login("admin", "admin@123"); 
-		returnRetailInfoPOM.fillInfo();
-		
-		
+		categoryMediumPOM.clickProductlink();
 	}
 	
-	
-	
 	}
-		
 	
+

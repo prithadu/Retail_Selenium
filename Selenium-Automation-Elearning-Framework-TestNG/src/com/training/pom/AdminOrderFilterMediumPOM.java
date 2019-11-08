@@ -15,16 +15,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class OrderRetailMediumPOM {
+public class AdminOrderFilterMediumPOM {
 
-	//TC047
+	//TC047:To Verify whether application allows admin to filter details of order placed by the user
 	
 	private WebDriver driver; 
 	public Actions act;
 	public Alert alert;
 	public LoginRetailPOM loginRetailPOM;
 
-	public OrderRetailMediumPOM(WebDriver driver) {
+	public AdminOrderFilterMediumPOM(WebDriver driver) {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}
@@ -77,11 +77,22 @@ public class OrderRetailMediumPOM {
 			//Validation
 			System.out.println((orderslink.isDisplayed()));
 			System.out.println((recurringProfilelink.isDisplayed()));
+			try
+			{
 			System.out.println((returnslink.isDisplayed()));
+			}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
+		finally
+		{
 			System.out.println((giftVoucherslink.isDisplayed()));
 
-		}
+		}	
+	}
 	
+	  //Fetch current date
 	  public String getTodaysDate()
 	  {
 		  
@@ -92,7 +103,7 @@ public class OrderRetailMediumPOM {
 		    return curdate;
 	  }
 
-		 public void clickonOrders() throws InterruptedException
+		 public void clickonOrdertoedit() 
 		 {
 			 salesmenu.click();
 			 orderslink.click();
@@ -112,7 +123,6 @@ public class OrderRetailMediumPOM {
 				//click on filter
 				filter.click();
 				//validation?
-				Thread.sleep(2000);
 				
 				System.out.println("Going to deselect");
 				//se.deselectByValue("Pending");
@@ -122,7 +132,7 @@ public class OrderRetailMediumPOM {
 				
 				//7. Click on Date icon of Date Added list box
 				
-		inputdate.sendKeys(getTodaysDate());
+				inputdate.sendKeys(getTodaysDate());
 				filter.click();
 				inputdate.clear();
 				

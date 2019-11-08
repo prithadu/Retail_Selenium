@@ -34,7 +34,7 @@ private WebDriver driver;
 	@FindBy(linkText="Sort Order")
 	private WebElement sortorder;
 	
-	@FindBy(xpath="//a[@class='asc']")
+	@FindBy(linkText="Category Name")
 	private WebElement catname;
 	
 	@FindBy(xpath="//td[contains(text(),'Action')")
@@ -67,7 +67,7 @@ private WebDriver driver;
 	
 	 //Links tab element
 	 
-	@FindBy(xpath="//a[contains(text(),'Links')]")
+	@FindBy(linkText="Links")
 	 private WebElement linktab;
 	
 	 @FindBy(id="input-category")
@@ -92,18 +92,18 @@ private WebDriver driver;
 		{
 			caticon.click();
 			//verify 
-			catlink.isDisplayed();
-			products.isDisplayed();
-			recurringprofile.isDisplayed();
+			System.out.println(catlink.isDisplayed());
+			System.out.println(products.isDisplayed());
+			System.out.println(recurringprofile.isDisplayed());
 			
 			}
 		
 		public void clickCategoryicon()
 		{
 			caticon.click();
+			catlink.click();
 			//verify
 			catname.isDisplayed();
-			action.isDisplayed();
 			sortorder.isDisplayed();
 			//click on AddNew
 			addnewicon.click();
@@ -124,20 +124,17 @@ private WebDriver driver;
 			//verify product page
 			String productpageheadertext=productpageheader.getText();
 			assertTrue(productpageheadertext.contains("Products"));
+			//click on add new icon and enter details
 			addnewicon.click();
 			productname.sendKeys("Finger Ring");
 			metatagtitle.sendKeys("Finger Ring for ladies");
-
-		}
-		
-		public void clickonLinks()
-		{
 			
+			//14. Click on Links tab
 			linktab.click();
 			
 			//select category from displayed . Select Category from displayed category list
 			
-			productcategories.sendKeys("orna");
+			productcategories.sendKeys("ORNAMENTS");
 			//KeyDown(productcategories,Keys.ENTER);
 			
 			//Application should display default values in Attribute, Option, Recurring, Discount, Special, Image, Reward Points and Design tab
@@ -148,7 +145,10 @@ private WebDriver driver;
 			special.click();
 			image.click();
 			
+
 		}
+		
+	
 		
 		}
 

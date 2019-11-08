@@ -11,23 +11,22 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
+import com.training.pom.AdminOrderChangePOM;
+import com.training.pom.AdminCustomerEditlMediumPOM;
 import com.training.pom.LoginRetailPOM;
-import com.training.pom.OrderRetailMediumPOM;
-import com.training.pom.OrderRetailPOM;
-import com.training.pom.ReturnRetailInfoFillPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class OrderRetailMediumTest {
+public class AdminOrderChangePOMTest {
 	
-	
+
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginRetailPOM loginRetailPOM;
-
+	
 	private static Properties properties;
 	private ScreenShot screenShot;
-	private OrderRetailMediumPOM orderRetailMediumPOM;
+	private AdminOrderChangePOM adminOrderChangePOM;
 	
 	
 	@BeforeClass
@@ -43,7 +42,7 @@ public class OrderRetailMediumTest {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginRetailPOM = new LoginRetailPOM(driver); 
-		orderRetailMediumPOM=new OrderRetailMediumPOM (driver);
+		adminOrderChangePOM=new AdminOrderChangePOM (driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -51,32 +50,38 @@ public class OrderRetailMediumTest {
 		loginRetailPOM.Login("admin", "admin@123"); 
 	}
 	
-	/*@AfterMethod
+@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
-	}*/
+	}
+@Test(priority=0)
+public void clickonsalesTest()
+{
+	adminOrderChangePOM.clickonSales();
+}
+	
 	
 	@Test(priority=1)
-	public void clickonsalesTest() 
+	public void clickonOrdersTest()
 	{
-		//loginRetailPOM.Login("admin", "admin@123"); 
-		orderRetailMediumPOM.clickonsales();
-		
+		try
+		{
+		adminOrderChangePOM.clickonOrders();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		screenShot.captureScreenShot("issuefound");
 		
 	}
-	
-	@Test(priority=2)
-	public void clickonOrdersTest() throws InterruptedException 
+	finally
 	{
-		//loginRetailPOM.Login("admin", "admin@123"); 
-		orderRetailMediumPOM.clickonOrders();
-		
-		
-	}
-	
+	System.out.println("Log a defect");
+	}	
 	
 	}
 		
+	
 
-
+}

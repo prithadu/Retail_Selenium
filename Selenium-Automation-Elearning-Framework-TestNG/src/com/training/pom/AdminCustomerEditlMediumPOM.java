@@ -8,12 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CustomerRetailMediumPOM {
+public class AdminCustomerEditlMediumPOM {
 
 	
 private WebDriver driver; 
 	
-	public CustomerRetailMediumPOM(WebDriver driver) {
+	public AdminCustomerEditlMediumPOM(WebDriver driver) {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 		
@@ -57,7 +57,8 @@ private WebDriver driver;
 		private WebElement customerListbox;
 		
 	 
-
+//edit Customer details & add reward points
+		
 	public void EditCustomerInfo()
 	{
 		//click on Customericon and customerlink

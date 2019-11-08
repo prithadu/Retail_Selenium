@@ -4,18 +4,25 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.training.generics.ScreenShot;
 
-public class ReturnRetailInfoFillPOM {
+public class AdminReturnProductMediumPOM {
+	
+	//TC049:admin to return product of customer & delete from return list
 	
 	
 	private WebDriver driver;
@@ -23,8 +30,9 @@ public class ReturnRetailInfoFillPOM {
 	private LoginRetailPOM loginRetailPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
+	Alert alert;
 
-	public ReturnRetailInfoFillPOM (WebDriver driver) {
+	public AdminReturnProductMediumPOM (WebDriver driver) {
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}
@@ -66,7 +74,7 @@ private WebElement save;
 @FindBy(xpath="//div[@class='alert alert-success']")
 private WebElement alertbox;
 
-@FindBy(xpath="//table[@class='table table-bordered table-hover']/tbody/tr[1]/td[1]/input[1]]")
+@FindBy(xpath="//div[@id='container']//tbody//tr[1]//td[1]")
 private WebElement checkbox_of_first_element;
 
 //click on delete
@@ -133,15 +141,32 @@ assertEquals(Addnewheader,"Product Returns");
 
 		String actual=alertbox.getText();
 		assertTrue(actual.contains("returns!"));
-		//identify first checkbox
+	  } 
+	 
+	 
+public void delete()
+{//identify first checkbox
+	
+	salesmenu.click();
+	System.out.println(" menu clicked");
+	
+Actions action=new Actions(driver);
+action.moveToElement(salesmenu).moveToElement(returnslink).click().build().perform();
+//click 
 		checkbox_of_first_element.click();
 		//click on delete
 		deleteicon.click();
-		Alert alert=driver.switchTo().alert();
+		//gettinng alert
+		WebDriverWait wait=new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.alertIsPresent());
+		wait.pollingEvery(1, TimeUnit.MICROSECONDS);
+		wait.ignoring(ElementNotVisibleException.class);
+		
+		 alert=driver.switchTo().alert();
 		alert.accept();
 		//WebElement msg1=driver.findElement(By.xpath("//div[@class='alert alert-success']"));
 		String actualone=alert.getText();
-		assertTrue(actualone.contains("returns!"));
+		assertTrue(actualone.contains(" Success: You have modified returns! "));
 				
 		  
 	  }

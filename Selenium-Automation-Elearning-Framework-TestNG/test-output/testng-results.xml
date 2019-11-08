@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="36688" started-at="2019-11-06T12:53:04Z" finished-at="2019-11-06T12:53:40Z">
+  <suite name="Default suite" duration-ms="21942" started-at="2019-11-08T12:43:25Z" finished-at="2019-11-08T12:43:47Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="36688" started-at="2019-11-06T12:53:04Z" finished-at="2019-11-06T12:53:40Z">
-      <class name="com.training.sanity.tests.OrderRetailMediumTest">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.OrderRetailMediumTest@6a638c79]" name="setUpBeforeClass" is-config="true" duration-ms="15" started-at="2019-11-06T12:53:04Z" finished-at="2019-11-06T12:53:04Z">
+    <test name="Default test" duration-ms="21942" started-at="2019-11-08T12:43:25Z" finished-at="2019-11-08T12:43:47Z">
+      <class name="com.training.sanity.tests.AdminReturnProductMediumTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.AdminReturnProductMediumTest@77caeb3e]" name="setUp" is-config="true" duration-ms="17852" started-at="2019-11-08T12:43:25Z" finished-at="2019-11-08T12:43:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.AdminReturnProductMediumTest@77caeb3e]" name="setUpBeforeClass" is-config="true" duration-ms="0" started-at="2019-11-08T12:43:25Z" finished-at="2019-11-08T12:43:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.OrderRetailMediumTest@6a638c79]" name="setUp" is-config="true" duration-ms="18419" started-at="2019-11-06T12:53:04Z" finished-at="2019-11-06T12:53:22Z">
+        <test-method status="PASS" signature="deletetest()[pri:3, instance:com.training.sanity.tests.AdminReturnProductMediumTest@77caeb3e]" name="deletetest" duration-ms="2395" started-at="2019-11-08T12:43:43Z" finished-at="2019-11-08T12:43:45Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="clickonsalesTest()[pri:1, instance:com.training.sanity.tests.OrderRetailMediumTest@6a638c79]" name="clickonsalesTest" duration-ms="239" started-at="2019-11-06T12:53:22Z" finished-at="2019-11-06T12:53:22Z">
+        </test-method> <!-- deletetest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.AdminReturnProductMediumTest@77caeb3e]" name="tearDown" is-config="true" duration-ms="1684" started-at="2019-11-08T12:43:45Z" finished-at="2019-11-08T12:43:47Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- clickonsalesTest -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.OrderRetailMediumTest@6a638c79]" name="setUp" is-config="true" duration-ms="16412" started-at="2019-11-06T12:53:22Z" finished-at="2019-11-06T12:53:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="clickonOrdersTest()[pri:2, instance:com.training.sanity.tests.OrderRetailMediumTest@6a638c79]" name="clickonOrdersTest" duration-ms="1550" started-at="2019-11-06T12:53:39Z" finished-at="2019-11-06T12:53:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clickonOrdersTest -->
-      </class> <!-- com.training.sanity.tests.OrderRetailMediumTest -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.training.sanity.tests.AdminReturnProductMediumTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
