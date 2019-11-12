@@ -91,7 +91,9 @@ public class ApachePOIExcelRead {
 	}
 
 	public static void main(String[] args) {
-		String fileName = "C:/Users/Naveen/Desktop/Testing.xlsx";
+		//String fileName = "C:/Users/Naveen/Desktop/Testing.xlsx";
+		String fileName = "C://Users//PrithaDutta//Desktop/Excelstrore//CustomerDataNew.xlsx";
+		
 		
 		for(String [] temp : new ApachePOIExcelRead().getExcelContent(fileName)){
 			for(String  tt : temp){
